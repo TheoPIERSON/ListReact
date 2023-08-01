@@ -1,4 +1,4 @@
-export default function Fruit({ fruitInfo, actionClick }) {
+export default function Fruit({ fruitInfo, actionClick, favClick }) {
   //state
   //comportement
   //render
@@ -6,6 +6,7 @@ export default function Fruit({ fruitInfo, actionClick }) {
     <li>
       {fruitInfo.nom}
       <button onClick={actionClick}>X</button>
+      <button onClick={favClick}>V</button>
     </li>
   );
 }

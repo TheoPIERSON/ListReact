@@ -34,14 +34,22 @@ function App() {
     //3. modifier le state avec le setter
     setFruits(fruitsCopy);
   };
+  const afficherFruitPrefere = (fruitNom) => {
+    alert(`J'aime trop ce fruit: ${fruitNom}`);
+  };
 
   //Affichage (render)
   return (
-    <div>
+    <div className="list">
       <h1>Liste de fruits</h1>
       <ul>
         {fruits.map((fruit) => (
-          <Fruit fruitInfo={fruit} actionClick={() => handleDelete(fruit.id)} key={fruit.id} />
+          <Fruit
+            fruitInfo={fruit}
+            actionClick={() => handleDelete(fruit.id)}
+            favClick={() => afficherFruitPrefere(fruit.nom)}
+            key={fruit.id}
+          />
         ))}
       </ul>
       <FruitForm handleAdd={handleAdd} />
