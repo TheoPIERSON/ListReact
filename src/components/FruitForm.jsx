@@ -1,17 +1,16 @@
 import { useState } from "react";
 
-export default function FruitForm({ fruits, setfruits }) {
+export default function FruitForm({ handleAdd }) {
   //state
   const [nouveauFruit, setNouveauFruit] = useState("");
   //comportement
   const handleSubmit = (event) => {
     event.preventDefault();
-    const fruitsCopy = [...fruits];
     const id = new Date().getTime();
     const nom = nouveauFruit;
     const fruitAAjouter = { id, nom };
-    fruitsCopy.push(fruitAAjouter);
-    setfruits(fruitsCopy);
+    //fruitsCopy.push(fruitAAjouter);
+    handleAdd(fruitAAjouter);
     setNouveauFruit("");
   };
 

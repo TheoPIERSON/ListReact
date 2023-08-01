@@ -1,11 +1,11 @@
-export default function Fruit({ fruitInfo, onFruitDelete }) {
+export default function Fruit({ fruitInfo, actionClick }) {
   //state
   //comportement
   //render
   return (
-    <li key={fruitInfo.id}>
+    <li>
       {fruitInfo.nom}
-      <button onClick={() => onFruitDelete(fruitInfo.id)}>X</button>
+      <button onClick={actionClick}>X</button>
     </li>
   );
 }
