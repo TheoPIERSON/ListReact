@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  //State (état, données)
+
+  const [fruits, setfruits] = useState([
+    { id: 1, nom: "Abricot" },
+    { id: 2, nom: "Banane" },
+    { id: 3, nom: "Cerise" },
+  ]);
+
+  //Comportement
+
+  const handleDelete = (id) => {
+    console.log(id);
+  };
+
+  //Affichage (render)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Liste de fruits</h1>
+      <ul>
+        {fruits.map((fruit) => (
+          <li key={fruit.id}>
+            {fruit.nom} <button onClick={() => handleDelete(fruit.id)}>X</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
